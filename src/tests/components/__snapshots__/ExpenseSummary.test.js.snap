@@ -4,22 +4,22 @@ exports[`should not render Expense summary with no expense 1`] = `<div />`;
 
 exports[`should render Expense summary with expenses 1`] = `
 <div>
-  <p>
+  <h1>
     Viewing 
     3
      expenses totalling 
     $2.40
-  </p>
+  </h1>
 </div>
 `;
 
 exports[`should render Expense summary with one expense 1`] = `
 <div>
-  <p>
+  <h1>
     Viewing 
     1
      expense totalling 
     $5.00
-  </p>
+  </h1>
 </div>
 `;
