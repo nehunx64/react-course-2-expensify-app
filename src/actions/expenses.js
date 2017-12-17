@@ -1,5 +1,5 @@
 import uuid from 'uuid';
-import expenseDatabase from '../firebase/firebase';
+import expenseDatabase, { database } from '../firebase/firebase';
 
 // component calls action generator
 // action generator returns an object
@@ -38,6 +38,15 @@ export const startAddExpense = (expenseData = {}) => {
 
 // REMOVE_EXPENSE
 const removeExpense = ({id}) => ({ type: 'REMOVE_EXPENSE', expense: { id }});
+
+export const startRemoveExpense = ({id}) => {
+    return (dispatch) => {
+        return database.ref(`expenses/${id.id}`).remove()
+            .then(() => {
+                dispatch(removeExpense({id}));
+            });
+    };
+};
 
 // EDIT_EXPENSE
 const editExpense = (id, updates) => ({
